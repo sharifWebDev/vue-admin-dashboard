@@ -1,40 +1,166 @@
-@import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities; 
 
 #app {
-  min-width: 100%;
-  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  height: auto;
   margin: 0 auto;
   font-weight: normal;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+/* Custom styles */
+.sidebar {
+    transition: all 0.3s ease;
+}
+ 
+.dashboard-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-@media (min-width: 1024px) {
-  body {
-    min-width: 100%;
-    max-width: 100%;
+.notification-dropdown {
+    width: 380px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+@media (max-width: 640px) {
+    .notification-dropdown {
+        width: 300px;
+        right: -50px;
+    }
+}
+
+.nav-item.active {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+.dark .nav-item.active {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+}
+
+.sidebar-shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.dark .sidebar-shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Notification type colors */
+.notification-success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.dark .notification-success {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+}
+
+.notification-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.dark .notification-warning {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+}
+
+.notification-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.dark .notification-error {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+}
+
+.notification-info {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.dark .notification-info {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+}
+
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* input type=radio color/ red/green */
+input[type=radio] {
+    color: #4ade80; 
+    border: 2px solid #4ade80; 
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    /* slate-300 */
+    border-radius: 10px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #475569;
+    /* slate-600 */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #6366f1;
+    /* indigo-500 */
+}
+
+@layer base {
+  input, textarea, select {
+    @apply border border-gray-300 dark:border-gray-600
+           focus:outline-none focus:ring-0;
   }
 
-  .invalid-feedback {
-    display: block !important; /* Hide error messages by default */
-    color: red; /* Optionally, you can style the error messages */
-    font-size: 14px;
+  .dark input:focus,
+  .dark textarea:focus,
+  .dark select:focus {
+    @apply border-gray-400;
   }
 
-  /* Display error messages when errors exist */
-  .has-error .invalid-feedback {
-    display: block !important;
+  input:focus,
+  textarea:focus,
+  select:focus {
+    @apply border-gray-600;
   }
 }
