@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/logo/logo-sm.png" />
+    <!-- <title>Dashboard | Ratan Consumer Care & Toiletries Ltd.</title> -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/masked-icon.svg" color="#4CAF50">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Accounting Application">
+    <meta name="csrf-token" content="{{ csrf-token }}" />
+  </head>
+
+  <body class="layout-fluid custom-scrollbar">
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
