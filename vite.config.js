@@ -8,11 +8,9 @@ export default defineConfig({
     vue(),
     VitePWA({
       registerType: "autoUpdate",
-      injectRegister: null
-    })
+    }),
   ],
   resolve: {
-    dedupe: ["vue", "vue-router"],
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
@@ -22,5 +20,5 @@ export default defineConfig({
     strictPort: true,
     https: false, // Set to true if you want HTTPS
     host: true, // Listen on all addresses
-  }, 
+  },
 });
