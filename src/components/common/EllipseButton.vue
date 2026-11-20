@@ -133,26 +133,34 @@ const hasListener = (name) => {
     );
 };
 
+const isAllowed = (permission) => {
+    if (permission == null || (typeof permission === 'string' && permission.trim() === '')) {
+        return true;
+    }
+
+    return can(permission);
+};
+
 // ✅ Show buttons only when:
 //   1. Explicit prop is not false (viewButton/editButton/deleteButton)
-//   2. User has the required permission
+//   2. User has the required permission, if one is configured
 //   3. Parent actually attached the corresponding event listener
 const showView = computed(
     () =>
         props.viewButton !== false &&
-        can(props.permissions.view) &&
+        isAllowed(props.permissions.view) &&
         hasListener('view')
 );
 const showEdit = computed(
     () =>
         props.editButton !== false &&
-        can(props.permissions.edit) &&
+        isAllowed(props.permissions.edit) &&
         hasListener('edit')
 );
 const showDelete = computed(
     () =>
         props.deleteButton !== false &&
-        can(props.permissions.delete) &&
+        isAllowed(props.permissions.delete) &&
         hasListener('delete')
 );
 
