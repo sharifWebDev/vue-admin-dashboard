@@ -5,7 +5,7 @@
       <div class="flex flex-col md:flex-row justify-between items-center">
         <p class="text-xs text-gray-600 dark:text-gray-400 mb-0 md:mb-0">
           A complete your app solution. © {{ currentYear }} All rights reserved. Powered by <a
-            href="https://imeshbd.com" target="_blank" class="hover:underline text-blue-600 dark:text-blue-400">System
+            href="https://systembuilder.com" target="_blank" class="hover:underline text-blue-600 dark:text-blue-400">System
             Builder</a>
         </p>
        <p class="hidden md:block"></p>

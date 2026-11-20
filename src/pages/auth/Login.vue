@@ -4,76 +4,6 @@
     darkMode ? 'bg-gradient-to-br from-gray-900 to-gray-800' : ''
   ]">
     <div class="flex flex-col lg:flex-row align-center justify-center min-h-screen 2xl:w-4/5 mx-auto">
-      <!-- Left Side Banner (50%) - Enhanced Design -->
-      <div :class="[
-        'lg:w-1/2 2xl:w-1/3 relative overflow-hidden transition-all duration-700']">
-        <!-- Animated Background Pattern -->
-        <div class="absolute inset-0 opacity-10">
-          <div class="absolute inset-0" 
-               :style="{
-                 backgroundImage: darkMode 
-                   ? 'radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%)'
-                   : 'radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%)'
-               }">
-          </div>
-        </div>
-
-        <!-- Floating Shapes -->
-        <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full blur-3xl opacity-20 animate-pulse"
-             :class="darkMode ? 'bg-purple-500/20' : 'bg-gray-300/30'"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-10 animate-pulse delay-1000"
-             :class="darkMode ? 'bg-gray-500/20' : 'bg-gray-400/20'"></div>
-
-        <!-- Content Container -->
-        <div class="relative z-10 h-full flex flex-col justify-center p-4 md:p-6 lg:p-8">
-          <!-- Header with Theme Toggle -->
-          <div class="flex justify-between items-start">
-            <div class="  items-center space-x-3">
-              <div class="h-50 w-50 rounded-lg flex items-center justify-center transition-all duration-500">
-               <img src="./../../../public/logo/app-logo.png" alt="" class="h-10"> App Builder
-              </div>
-              <!-- <div> 
-                <p class="text-sm transition-colors duration-500"
-                   :class="darkMode ? 'text-gray-200' : 'text-gray-500'">
-                  Account Management Platform
-                </p>
-              </div> -->
-            </div> 
-          </div>
-          
-          <!-- Main Content -->
-          <div class="mt-4 max-w-md animate-slide-up">
-            <h5 class="text-2xl md:text-3xl font-bold mb-6 transition-colors duration-500"
-                :class="darkMode ? 'text-white' : 'text-gray-800'">
-            A Powerful Application Builder for Modern Secure App Development.
-            </h5>
-            
-            <!-- Feature List -->
-            <div class="space-y-6">
-              <div v-for="(feature, index) in features" :key="index"
-                   class="flex items-start space-x-4 animate-slide-up"
-                   :style="{ animationDelay: `${index * 100}ms` }">
-                <div :class="[
-                  'w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-500',
-                  darkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-gray-50 hover:bg-gray-100'
-                ]">
-                  <i :class="feature.icon" class="text-lg transition-colors duration-500" ></i>
-                </div>
-                <div>
-                  <h3 class="font-semibold mb-1 transition-colors duration-500"
-                      :class="darkMode ? 'text-white' : 'text-gray-800'">
-                    {{ feature.title }}
-                  </h3>
-                  <p class="text-sm transition-colors duration-500"
-                     :class="darkMode ? 'text-gray-200' : 'text-gray-600'">
-                    {{ feature.description }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div> 
-        </div>
-      </div>
 
       <!-- Right Side Login Form (50%) - Enhanced Design -->
       <div class="lg:w-1/2 flex items-center justify-center p-6 md:p-12">
@@ -209,25 +139,6 @@
                   </button>
                 </div>
                 
-                <!-- Password Strength -->
-                <!-- <div v-if="form.password && !errors.password.length" class="mt-4 space-y-2 animate-slide-up">
-                  <div class="flex items-center justify-between text-xs transition-colors duration-500"
-                       :class="darkMode ? 'text-gray-400' : 'text-gray-600'">
-                    <span>Password strength</span>
-                    <span :class="passwordStrengthClass">{{ passwordStrengthText }}</span>
-                  </div>
-                  <div :class="[
-                    'w-full rounded-full h-1.5 transition-colors duration-500',
-                    darkMode ? 'bg-gray-700' : 'bg-gray-200'
-                  ]">
-                    <div 
-                      class="h-1.5 rounded-full transition-all duration-500"
-                      :class="passwordStrengthBarClass"
-                      :style="{ width: passwordStrength + '%' }"
-                    ></div>
-                  </div>
-                </div> -->
-                
                 <div v-if="errors.password.length" class="mt-2 flex items-center space-x-2 text-sm animate-slide-down">
                   <i class="fas fa-exclamation-circle text-red-500"></i>
                   <span :class="darkMode ? 'text-red-400' : 'text-red-600'">{{ errors.password[0] }}</span>
@@ -285,7 +196,6 @@
                 <span class="flex items-center">{{ loadingBtn ? 'Signing in...' : 'Sign in to Account' }}</span>
                 <i v-if="!loadingBtn" class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
               </button>
-  
             </form>
           </div>
 
@@ -340,27 +250,27 @@ const errorMessage = ref("");
 const successMessage = ref("");
 const showPassword = ref(false);
 
-// Features list
+// Universal Features list for all types of apps
 const features = [
   {
-    icon: "fas fa-university",
-    title: "Multi-Branch Management",
-    description: "Manage multiple bank branches from a single unified dashboard"
+    icon: "fas fa-layer-group", // অথবা "fas fa-tachometer-alt"
+    title: "Centralized Management",
+    description: "Manage all your operations, data, and workflows from a single unified dashboard"
   },
   {
-    icon: "fas fa-lock",
-    title: "Advanced Security",
-    description: "Bank-grade encryption and multi-level authentication protocols"
+    icon: "fas fa-shield-alt", // অথবা "fas fa-lock"
+    title: "Enterprise-Grade Security",
+    description: "End-to-end encryption and multi-factor authentication to keep your data safe"
   },
   {
-    icon: "fas fa-chart-pie",
-    title: "Real-time Analytics",
-    description: "Monitor transactions and generate detailed financial reports instantly"
+    icon: "fas fa-chart-line", // অথবা "fas fa-chart-pie"
+    title: "Real-Time Analytics",
+    description: "Track performance, user activity, and generate detailed insights instantly"
   },
   {
-    icon: "fas fa-exchange-alt",
-    title: "Transaction Processing",
-    description: "Fast and secure processing of deposits, withdrawals, and transfers"
+    icon: "fas fa-bolt", // অথবা "fas fa-sync-alt"
+    title: "Seamless Automation",
+    description: "Fast, reliable, and automated processing to boost your daily productivity"
   }
 ];
 

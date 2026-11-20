@@ -18,9 +18,9 @@
         </div>
         <div class="flex flex-col leading-none">
           <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white uppercase">
-            App<span class="text-indigo-600">Builder</span>
+            App<span class="text-indigo-600">Logo</span>
           </span>
-          <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 tracking-[0.2em] uppercase">Engineered Pro</span>
+          <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 tracking-[0.2em] uppercase">App Name</span>
         </div>
       </RouterLink>
 
@@ -104,7 +104,7 @@
           to="/dashboard"
           class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-indigo-200 dark:shadow-none transition-all active:scale-95"
         >
-          Build Project
+         Dashboard
         </RouterLink>
         <button 
           @click="toggleDark"
