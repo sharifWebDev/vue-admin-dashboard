@@ -255,7 +255,7 @@ export const createBaseStore = (storeName, apiEndpoint, defaultConfig = {}) => {
           payload = data;
         }
 
-        const endpoint = `${apiEndpoint}/${id}`;
+        const endpoint = `${apiEndpoint}/update/${id}`;
 
         const response = await axiosClient.post(endpoint, payload, {
           headers:
@@ -290,7 +290,7 @@ export const createBaseStore = (storeName, apiEndpoint, defaultConfig = {}) => {
         loading.value = true;
         clearMessages();
 
-        const response = await axiosClient.delete(`${apiEndpoint}/${id}`);
+        const response = await axiosClient.delete(`${apiEndpoint}/destroy/${id}`);
 
         // Remove item from the list
         removeItemFromList(id);
