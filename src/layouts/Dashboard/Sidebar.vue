@@ -180,30 +180,6 @@ const hoverTooltipData = ref(null);
  
 /* ================= Menu with Permissions ================= */
 const navigationItems = ref([
-        {
-          id: 'units',
-          text: 'Units',
-          icon: 'fas fa-layer-group',
-          route: '/units',
-          exact: false,
-          permission: '' 
-        },
-        {
-          id: 'model-has-roles',
-          text: 'Model Has Roles',
-          icon: 'fas fa-layer-group',
-          route: '/model-has-roles',
-          exact: false,
-          permission: '' 
-        },
-        {
-          id: 'suppliers',
-          text: 'Suppliers',
-          icon: 'fas fa-layer-group',
-          route: '/suppliers',
-          exact: false,
-          permission: '' 
-        },
   {
     id: 'overview',
     text: 'dashboard',
@@ -274,12 +250,11 @@ const navigationItems = ref([
   //   permission: '', // Parent permission
   //   subItems: [
   //     // {
-  //     //   name: 'General Ledger',
-  //     //   path: '/general-ledgers',
+  //     //   name: 'General reports',
+  //     //   path: '/general-reports',
   //     //   icon: 'fa-solid fa-money-bill-transfer',
-  //     //   permission: 'general_ledger_report.view'
+  //     //   permission: 'general_report.view'
   //     // },
-     
   //   ]
   // }
 ]);
