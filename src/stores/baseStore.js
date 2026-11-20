@@ -133,7 +133,7 @@ export const createBaseStore = (storeName, apiEndpoint, defaultConfig = {}) => {
       }
       try {
         loading.value = true;
-        const response = await axiosClient.get(`${apiEndpoint}/all`, {
+        const response = await axiosClient.get(`${apiEndpoint}/get`, {
           params,
         });
         const apiResponse = response.data;

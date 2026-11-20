@@ -29,7 +29,7 @@ import Chart from "chart.js/auto";
 // Import only the store - remove service imports
 import { useNotificationStore } from "@/stores/notificationStore";
 
-import { registerSW } from "virtual:pwa-register";
+// import { registerSW } from "virtual:pwa-register";
 
 
 const toastOptions = {
@@ -157,12 +157,12 @@ const initializeFirebaseNotifications = async () => {
 // Call with a delay to ensure auth is ready
 setTimeout(initializeFirebaseNotifications, 2000);
 // Register PWA service worker
-const updateSW = registerSW({
-  immediate: true,
-  onNeedRefresh() {
-    console.log("🔄 New version available");
-  },
-  onOfflineReady() {
-    console.log("📱 App ready for offline use");
-  },
-});
+// const updateSW = registerSW({
+//   immediate: true,
+//   onNeedRefresh() {
+//     console.log("🔄 New version available");
+//   },
+//   onOfflineReady() {
+//     console.log("📱 App ready for offline use");
+//   },
+// });
